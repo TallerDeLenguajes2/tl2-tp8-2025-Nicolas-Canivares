@@ -1,0 +1,36 @@
+@using TiendaDB
+@model List<Productos>
+
+</ul>
+<h1 >Listado Productos</h1>
+<table class="table table-striped">
+<thead class="thead-dark">
+
+    <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Precio</th>
+    <th scope="col">Acciones</th>
+    </tr>
+
+</thead>
+<tbody>
+@foreach (var producto in Model){
+    <tr>
+    <td scope="row">@producto.IdProducto</td>
+    <td>@producto.Descripcion</td>
+    <td>@producto.Precio</td>
+    <td class="flex-grow-1">
+        <button class="btn btn-info">
+        <a class="text-decoration-none fst-normal link-light" asp-area="" asp-controller="Productos" asp-action="Edit">Editar</a>
+        </button>
+        <button class="btn btn-danger">
+        <a class="text-decoration-none fst-normal link-light" asp-area="" asp-controller="Productos" asp-action="Delete">Borrar</a>
+        </button>
+    </td>
+    </tr>
+}
+</tbody>
+</table>
+
+
