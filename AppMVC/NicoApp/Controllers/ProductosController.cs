@@ -7,7 +7,7 @@ namespace NicoApp.Controllers;
 
 public class ProductosController : Controller
 {
-   /*  private readonly ILogger<ProductosController> _logger;
+/*  private readonly ILogger<ProductosController> _logger;
 
     public ProductosController(ILogger<ProductosController> logger)
     {

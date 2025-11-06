@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\enzon\\OneDrive\\Escritorio\\SegundoParcialTaller2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj": {}
+    "C:\\Users\\enzon\\Desktop\\TallerDeLenguajes2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\enzon\\OneDrive\\Escritorio\\SegundoParcialTaller2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj": {
+    "C:\\Users\\enzon\\Desktop\\TallerDeLenguajes2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\enzon\\OneDrive\\Escritorio\\SegundoParcialTaller2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj",
+        "projectUniqueName": "C:\\Users\\enzon\\Desktop\\TallerDeLenguajes2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj",
         "projectName": "NicoApp",
-        "projectPath": "C:\\Users\\enzon\\OneDrive\\Escritorio\\SegundoParcialTaller2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj",
+        "projectPath": "C:\\Users\\enzon\\Desktop\\TallerDeLenguajes2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj",
         "packagesPath": "C:\\Users\\enzon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\enzon\\OneDrive\\Escritorio\\SegundoParcialTaller2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\obj\\",
+        "outputPath": "C:\\Users\\enzon\\Desktop\\TallerDeLenguajes2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\enzon\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.409/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

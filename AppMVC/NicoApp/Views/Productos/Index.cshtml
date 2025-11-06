@@ -1,8 +1,12 @@
 @using TiendaDB
 @model List<Productos>
 
-</ul>
-<h1 >Listado Productos</h1>
+
+<article class="d-flex align-items-center justify-content-between">
+<h1>Listado Productos</h1>
+<button class="btn btn-primary" asp-area="" asp-controller="Productos" asp-action="Create">Crear</button>
+
+</article>
 <table class="table table-striped">
 <thead class="thead-dark">
 
@@ -15,7 +19,7 @@
 
 </thead>
 <tbody>
-@foreach (var producto in Model){
+@foreach (Productos producto in Model){
     <tr>
     <td scope="row">@producto.IdProducto</td>
     <td>@producto.Descripcion</td>

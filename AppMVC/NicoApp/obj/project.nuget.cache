@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BiLSEVfdf38=",
+  "dgSpecHash": "kXabn64okoY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\enzon\\OneDrive\\Escritorio\\SegundoParcialTaller2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj",
+  "projectFilePath": "C:\\Users\\enzon\\Desktop\\TallerDeLenguajes2\\tl2-tp8-2025-Nicolas-Canivares\\AppMVC\\NicoApp\\NicoApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\enzon\\.nuget\\packages\\microsoft.data.sqlite\\9.0.10\\microsoft.data.sqlite.9.0.10.nupkg.sha512",
     "C:\\Users\\enzon\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.10\\microsoft.data.sqlite.core.9.0.10.nupkg.sha512",
