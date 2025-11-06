@@ -26,19 +26,35 @@ public class ProductosController : Controller
         var listadoProductos = productoRepository.getProductos();
         return View(listadoProductos);
     }
-
+    [HttpGet]
     public IActionResult Create()
     {
-        return View();
+        var producto = new Productos();
+        return View(producto);
     }
-
-    public IActionResult Edit()
+    [HttpPost]
+    public IActionResult Create(Productos producto)
     {
-        return View();
+        productoRepository.addNewProducto(producto);
+        return RedirectToAction("Index");
     }
-    public IActionResult Delete()
+    [HttpGet]
+    public IActionResult Edit(int idProducto)
     {
-        return View();
+        Productos producto = productoRepository.getProductosById(idProducto);
+        return View(producto);
+    }
+    [HttpPost]
+    public IActionResult Edit(Productos producto)
+    {
+        productoRepository.updateProducto(producto.IdProducto,producto);
+        return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public IActionResult Delete(int idProducto)
+    {
+        productoRepository.deleteProductoById(idProducto);
+        return RedirectToAction("Index");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
