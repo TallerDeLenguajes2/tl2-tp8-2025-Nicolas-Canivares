@@ -1,18 +1,12 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using NicoApp.Models;
+using NicoApp.ViewModels;
 using TiendaDB;
-
 namespace NicoApp.Controllers;
 
 public class ProductosController : Controller
 {
-/*  private readonly ILogger<ProductosController> _logger;
-
-    public ProductosController(ILogger<ProductosController> logger)
-    {
-        _logger = logger;
-    } */
 
     private ProductoRepository productoRepository;
 
@@ -29,25 +23,60 @@ public class ProductosController : Controller
     [HttpGet]
     public IActionResult Create()
     {
-        var producto = new Productos();
-        return View(producto);
+        //var producto = new Productos();
+        return View(new ProductoViewModel());
     }
+
     [HttpPost]
-    public IActionResult Create(Productos producto)
+    public IActionResult Create(ProductoViewModel productoVM)
     {
-        productoRepository.addNewProducto(producto);
+
+        if (!ModelState.IsValid)
+        {
+            return View(productoVM);
+        }
+
+        var nuevoProducto = new Productos
+        {
+            Descripcion = productoVM.Descripcion,
+            Precio = productoVM.Precio
+        };
+
+        productoRepository.addNewProducto(nuevoProducto);
         return RedirectToAction("Index");
     }
     [HttpGet]
     public IActionResult Edit(int idProducto)
     {
-        Productos producto = productoRepository.getProductosById(idProducto);
-        return View(producto);
+
+        var producto = productoRepository.getProductosById(idProducto);
+
+        var editProductoVM = new ProductoViewModel
+        {
+            IdProducto = producto.IdProducto,
+            Descripcion = producto.Descripcion,
+            Precio = producto.Precio
+        };
+
+        return View(editProductoVM);
+        //return View(producto);
     }
     [HttpPost]
-    public IActionResult Edit(Productos producto)
+    public IActionResult Edit(ProductoViewModel productoVM)
     {
-        productoRepository.updateProducto(producto.IdProducto,producto);
+        if (!ModelState.IsValid)
+        {
+            return View(productoVM);
+        }
+
+        var productoAEditar = new Productos
+        {
+            IdProducto = productoVM.IdProducto,
+            Descripcion = productoVM.Descripcion,
+            Precio = productoVM.Precio
+        };
+
+        productoRepository.updateProducto(productoAEditar.IdProducto,productoAEditar);
         return RedirectToAction("Index");
     }
     [HttpGet]

@@ -1,18 +1,11 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using NicoApp.Models;
-using TiendaDB;
 
-namespace NicoApp.Controllers;
+namespace TiendaDB;
 
 public class PresupuestosController : Controller
 {
-/*     private readonly ILogger<PresupuestosController> _logger;
-
-    public PresupuestosController(ILogger<PresupuestosController> logger)
-    {
-        _logger = logger;
-    } */
 
     private PresupuestosRepository presupuestosRepository;
 
