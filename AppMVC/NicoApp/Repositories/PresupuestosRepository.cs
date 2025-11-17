@@ -57,7 +57,7 @@ public class PresupuestosRepository
                         //Carga del presupuesto
                         presupuesto.IdPresupuesto = Convert.ToInt32(reader["idPresupuesto"]);
                         presupuesto.NombreDestinatario = reader["NombreDestinatario"].ToString();
-                        presupuesto.FechaCreacion1 = DateOnly.FromDateTime(Convert.ToDateTime(reader["FechaCreacion"]));
+                        presupuesto.FechaCreacion1 = Convert.ToDateTime(reader["FechaCreacion"]);
 
                         presupuestos.Add(presupuesto);
                     }
@@ -104,7 +104,7 @@ public class PresupuestosRepository
                         //Carga del presupuesto
                         presupuesto.IdPresupuesto = Convert.ToInt32(reader["idPresupuesto"]);
                         presupuesto.NombreDestinatario = reader["NombreDestinatario"].ToString();
-                        presupuesto.FechaCreacion1 = DateOnly.FromDateTime(Convert.ToDateTime(reader["FechaCreacion"]));
+                        presupuesto.FechaCreacion1 = Convert.ToDateTime(reader["FechaCreacion"]);
 
                         presupuesto.Detalle = new List<PresupuestoDetalle>();
 

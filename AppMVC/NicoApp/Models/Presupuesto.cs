@@ -5,14 +5,14 @@ public class Presupuestos
     private int idPresupuesto;
     private string nombreDestinatario;
 
-    private DateOnly FechaCreacion;
+    private DateTime FechaCreacion;
 
     private List<PresupuestoDetalle> detalle;
 
     public Presupuestos()
     {
     }
-    public Presupuestos(int idPresupuesto, string nombreDestinatario, DateOnly fechaCreacion, List<PresupuestoDetalle> detalle)
+    public Presupuestos(int idPresupuesto, string nombreDestinatario, DateTime fechaCreacion, List<PresupuestoDetalle> detalle)
     {
         this.IdPresupuesto = idPresupuesto;
         this.NombreDestinatario = nombreDestinatario;
@@ -22,6 +22,6 @@ public class Presupuestos
 
     public int IdPresupuesto { get => idPresupuesto; set => idPresupuesto = value; }
     public string NombreDestinatario { get => nombreDestinatario; set => nombreDestinatario = value; }
-    public DateOnly FechaCreacion1 { get => FechaCreacion; set => FechaCreacion = value; }
+    public DateTime FechaCreacion1 { get => FechaCreacion; set => FechaCreacion = value; }
     public List<PresupuestoDetalle> Detalle { get => detalle; set => detalle = value; }
 }

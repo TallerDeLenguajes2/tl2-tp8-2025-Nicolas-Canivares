@@ -1,8 +1,8 @@
 @using TiendaDB
 @model List<Presupuestos>
 <article class="d-flex align-items-center justify-content-between">
-    <h1 class="text-light">Listado Productos</h1>
-    <a class="text-decoration-none fst-normal link-light" asp-controller="Productos" asp-action="Create">
+    <h1 class="text-light">Listado Presupuestos</h1>
+    <a class="text-decoration-none fst-normal link-light" asp-controller="Presupuestos" asp-action="Create">
     <button class="btn btn-primary">
         Crear
     </button></a>
@@ -11,8 +11,8 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
+            <th scope="col">Destinatario</th>
+            <th scope="col">Fecha</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -27,12 +27,12 @@
                 @* <td class="flex-grow-1 d-flex align-items-center justify-content-center"> *@
                 @* <td class="d-flex align-content-md-around flex-wrap"> *@
                     <button class="btn btn-info m-2">
-                        <a class="text-decoration-none fst-normal link-light" asp-area="" asp-controller="Productos"
-                            asp-action="Edit" asp-route-idProducto="@presupuesto.IdPresupuesto">Editar</a>
+                        <a class="text-decoration-none fst-normal link-light" asp-area="" asp-controller="Presupuestos"
+                            asp-action="Edit" asp-route-idPresupuesto="@presupuesto.IdPresupuesto">Editar</a>
                     </button>
                     <button class="btn btn-danger m-2">
-                        <a class="text-decoration-none fst-normal link-light" asp-area="" asp-controller="Productos"
-                            asp-action="Delete" asp-route-idProducto="@presupuesto.IdPresupuesto">Borrar</a>
+                        <a class="text-decoration-none fst-normal link-light" asp-area="" asp-controller="Presupuestos"
+                            asp-action="Delete" asp-route-idPresupuesto="@presupuesto.IdPresupuesto">Borrar</a>
                     </button>
                 </td>
             </tr>
