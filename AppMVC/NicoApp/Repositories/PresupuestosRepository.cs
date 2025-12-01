@@ -1,9 +1,10 @@
 using Microsoft.Data.Sqlite;
+using MVC.Interfaces;
 
 namespace TiendaDB;
 
 
-public class PresupuestosRepository
+public class PresupuestosRepository : IPresupuestoRepository
 {
     private string _connectionString = "Data Source=DB/Tienda.db;";
 
@@ -166,7 +167,7 @@ public class PresupuestosRepository
         }
 
 //REVISAR ---------------------
-            public Presupuestos getDetallesPresupuesto(int id)
+    public Presupuestos getDetallesPresupuesto(int id)
     {
         using (var conexion = new SqliteConnection(_connectionString))
         {

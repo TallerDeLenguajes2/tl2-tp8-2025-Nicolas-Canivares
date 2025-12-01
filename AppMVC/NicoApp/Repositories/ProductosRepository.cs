@@ -1,9 +1,10 @@
 
 using Microsoft.Data.Sqlite;
+using MVC.Interfaces;
 
 namespace TiendaDB;
 
-public class ProductoRepository
+public class ProductoRepository : IProductoRepository
 {
     private string _connectionString = "Data Source=DB/Tienda.db;";
 
