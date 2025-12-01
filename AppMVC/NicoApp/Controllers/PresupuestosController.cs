@@ -3,26 +3,66 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using NicoApp.Models;
 using NicoApp.ViewModels;
-
-namespace TiendaDB;
+using MVC.Interfaces;
+using TiendaDB;
+namespace NicoApp.Controllers;
 
 public class PresupuestosController : Controller
 {
 
-    private PresupuestosRepository presupuestosRepository;
+    //private PresupuestosRepository presupuestosRepository;
+    private IPresupuestoRepository _repo;
+    private IProductoRepository _productoRepo;
+    private IAuthenticationService _authService;
 
-    public PresupuestosController()
+    public PresupuestosController(IPresupuestoRepository repo,
+IProductoRepository prodRepo, IAuthenticationService authService)
     {
-        presupuestosRepository = new PresupuestosRepository();
+        _repo = repo;
+        _productoRepo = prodRepo;
+        _authService = authService;
     }
 
     public IActionResult Index()
     {
-        return View(presupuestosRepository.getPresupuestos());
+
+        // Comprobación de si está logueado
+        if (!_authService.IsAuthenticated())
+        {
+            return RedirectToAction("Index", "Login");
+        }
+        // Verifica Nivel de acceso que necesite validar
+        if (_authService.HasAccessLevel("Administrador") ||
+            _authService.HasAccessLevel("Cliente") )
+        {
+        //si es es valido entra sino vuelve a login
+
+            return View(_repo.getPresupuestos());
+        }else
+        {
+            return RedirectToAction("Index", "Login");
+        }
+    }
+
+    public IActionResult AccesoDenegado()
+    {
+        // El usuario está logueado, pero no tiene el rol suficiente.
+        return View();
     }
 
     public IActionResult Create()
     {
+
+        // Comprobación de si está logueado
+        if (!_authService.IsAuthenticated())
+        {
+            return RedirectToAction("Index", "Login");
+        }
+        // Verifica Nivel de acceso
+        if (!_authService.HasAccessLevel("Administrador"))
+        {
+            return RedirectToAction(nameof(AccesoDenegado));
+        }
         //var producto = new Productos();
         var presupuestoNuevo = new PresupuestoViewModel
         {
@@ -35,6 +75,16 @@ public class PresupuestosController : Controller
     [HttpPost]
     public IActionResult Create(PresupuestoViewModel presupuestoVM)
     {
+         // Comprobación de si está logueado
+        if (!_authService.IsAuthenticated())
+        {
+            return RedirectToAction("Index", "Login");
+        }
+        // Verifica Nivel de acceso
+        if (!_authService.HasAccessLevel("Administrador"))
+        {
+            return RedirectToAction(nameof(AccesoDenegado));
+        }
 
         if (!ModelState.IsValid)
         {
@@ -46,14 +96,24 @@ public class PresupuestosController : Controller
             FechaCreacion1 = presupuestoVM.FechaCreacion
         };
 
-        presupuestosRepository.addNewPresupuesto(nuevoPresupuesto);
+        _repo.addNewPresupuesto(nuevoPresupuesto);
         return RedirectToAction("Index");
     }
     [HttpGet]
     public IActionResult Edit(int idPresupuesto)
     {
+         // Comprobación de si está logueado
+        if (!_authService.IsAuthenticated())
+        {
+            return RedirectToAction("Index", "Login");
+        }
+        // Verifica Nivel de acceso
+        if (!_authService.HasAccessLevel("Administrador"))
+        {
+            return RedirectToAction(nameof(AccesoDenegado));
+        }
 
-        var presupuesto = presupuestosRepository.getPresupuestosById(idPresupuesto);
+        var presupuesto = _repo.getPresupuestosById(idPresupuesto);
 
         var editPresupuestoVM = new PresupuestoViewModel
         {
@@ -68,6 +128,16 @@ public class PresupuestosController : Controller
     [HttpPost]
     public IActionResult Edit(PresupuestoViewModel presupuestoVM)
     {
+         // Comprobación de si está logueado
+        if (!_authService.IsAuthenticated())
+        {
+            return RedirectToAction("Index", "Login");
+        }
+        // Verifica Nivel de acceso
+        if (!_authService.HasAccessLevel("Administrador"))
+        {
+            return RedirectToAction(nameof(AccesoDenegado));
+        }
         
         if (!ModelState.IsValid)
         {
@@ -81,7 +151,7 @@ public class PresupuestosController : Controller
             FechaCreacion1 = presupuestoVM.FechaCreacion
         };
 
-        presupuestosRepository.updatePresupuesto(presupuestoAEditar);
+        _repo.updatePresupuesto(presupuestoAEditar);
 
         return RedirectToAction("Index");
     }
@@ -89,7 +159,17 @@ public class PresupuestosController : Controller
     [HttpGet]
     public IActionResult Delete(int idPresupuesto)
     {
-        presupuestosRepository.deletePresupuesto(idPresupuesto);
+         // Comprobación de si está logueado
+        if (!_authService.IsAuthenticated())
+        {
+            return RedirectToAction("Index", "Login");
+        }
+        // Verifica Nivel de acceso
+        if (!_authService.HasAccessLevel("Administrador"))
+        {
+            return RedirectToAction(nameof(AccesoDenegado));
+        }
+        _repo.deletePresupuesto(idPresupuesto);
         return RedirectToAction("Index");
     }
 

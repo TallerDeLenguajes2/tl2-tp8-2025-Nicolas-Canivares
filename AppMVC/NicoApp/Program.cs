@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using TiendaDB;
 using MVC.Interfaces;
+using MVC.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -45,6 +46,6 @@ app.UseAuthorization();  // Necesario si usa atributos, aunque aquí lo haremos 
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NicoApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdfaa3abd7685f01e8c2456c995a46b1314b2f6f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbb48b7e5fa08b78f1a364a5b8bde27db80453e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("NicoApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NicoApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
